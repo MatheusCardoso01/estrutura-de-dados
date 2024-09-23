@@ -1,0 +1,7 @@
+Explicação do QuickSort e Passo a passo do código:
+
+O QuickSort é um algoritmo de ordenação, complexidade O(n log n), que se usa de divisão e recursion
+para reduzir força bruta e melhorar desempenho ao ordenar valores.
+
+Utiliza de uma variável chamada pivo e particiona todos os elementos não ordenados do vetor em duas seções
+a serem trabalhadas recursivamente: valores menores que o pivo a esquerda e valores maiores a direita dele.

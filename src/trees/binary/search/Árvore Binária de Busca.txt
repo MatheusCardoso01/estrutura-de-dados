@@ -1,0 +1,18 @@
+Pseudocódigo:
+
+Renomear a classe ArvoreBinariaDeBusca para BinarySearchTree.
+Renomear a classe Elementos para Node (Nó)
+Renomear os métodos para inglês.
+
+Nomes das funções:
+inserir -> insert
+remover -> remove
+buscar -> search
+emOrdem -> inOrder
+preOrdem -> preOrder
+posOrdem -> postOrder
+altura -> height
+minimo -> minimum
+maximo -> maximum
+sucessor -> successor
+predecessor -> predecessor
