@@ -29,34 +29,33 @@ public class QuickSort {
         }
     }
 
-    int parcionarValores(int inicio, int fim) {
-        int pivo = vet[inicio];
-        int i = fim + 1;
-        int aux;
-        for (int j = fim; j > inicio; j--) {
-            if (vet[j] >= pivo) {
-                i--;
-                aux = vet[i];
-                vet[i] = vet[j];
-                vet[j] = aux;
-            }
+    // Complexidade O(n log n)
+    void quickSort(int inicio, int fim) {
+        if (inicio >= fim) {
+            return;
         }
-        int posiPivo = i - 1;
-        aux = vet[posiPivo];
-        vet[posiPivo] = vet[inicio];
-        vet[inicio] = aux;
 
-        return posiPivo;
+        int indicePivo = parcionarValores(inicio, fim);
+        quickSort(inicio, indicePivo - 1); //coloca valores menores a esquerda
+        quickSort(indicePivo + 1, fim); // coloca valores maiores a direita
     }
 
-    // Complexidade O(n log n)
-
-    void ordenarValores(int inicio, int fim) {
-        if (inicio < fim) {
-            int indicePivo = parcionarValores(inicio, fim);
-            ordenarValores(inicio, indicePivo - 1); //coloca valores menores a esquerda
-            ordenarValores(indicePivo + 1, fim); // coloca valores maiores a direita
+    int parcionarValores(int inicio, int fim) {
+        int pivo = vet[inicio];
+        int pivoPos = inicio;
+        int aux;
+        for (int i = inicio + 1; i <= fim; i++) {
+            if (pivo >= vet[i]) {
+                pivoPos++;
+                aux = vet[i];
+                vet[i] = vet[pivoPos];
+                vet[pivoPos] = aux;
+            }
         }
+        aux = vet[pivoPos];
+        vet[pivoPos] = pivo;
+        vet[inicio] = aux;
+        return pivoPos;
     }
 
     public static void main(String[] args) {
@@ -66,9 +65,11 @@ public class QuickSort {
 
         quickSort.gerarValoresAleatorios();
 
+//        quickSort.vet = new int[]{3,0,1,2,4,5};
+
         long tempoInicial = System.currentTimeMillis();
 
-        quickSort.ordenarValores(0, quickSort.vet.length - 1);
+        quickSort.quickSort(0, quickSort.vet.length - 1);
 
         long tempoFinal = System.currentTimeMillis();
 
