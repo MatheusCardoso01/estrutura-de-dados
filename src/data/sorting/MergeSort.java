@@ -1,6 +1,6 @@
 package data.sorting;
 
-public class MergeSortOtimizado {
+public class MergeSort {
 
     public static void mergeSort(int[] array) {
         int[] auxiliar = new int[array.length];
